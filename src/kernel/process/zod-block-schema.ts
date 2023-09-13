@@ -1,8 +1,8 @@
 import { z } from 'zod';
 
-export const ZodNextSchema = z.object({
-  id: z.string(),
-});
+// export const ZodNextSchema = z.object({
+//   id: z.string(),
+// });
 
 const ZodLocalWrapperArgumentsSchema = z.object({
   placement: z.literal('local'),
@@ -59,7 +59,7 @@ export const ZodBlockSchema = z.object({
   wrapper: z.string(),
   wrapper_arguments: ZodWrapperArgumentsSchema,
   wrapper_result_schema: z.record(z.any()),
-  next: z.array(ZodNextSchema),
+  next: z.string(),
 });
 
 export const ZodBlockCallSchema = z.record(ZodBlockSchema).refine((val) => {

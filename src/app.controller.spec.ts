@@ -16,17 +16,17 @@ describe('AppController', () => {
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       // раскоментить только для теста подключения сервисов!! иначе джест не закончит работу
-      // imports: [
-      //   ClientsModule.register([
-      //     {
-      //       name: 'TRANSPORT',
-      //       transport: Transport.NATS,
-      //       options: {
-      //         servers: ['nats://localhost:4222'],
-      //       },
-      //     },
-      //   ]),
-      // ],
+      imports: [
+        ClientsModule.register([
+          {
+            name: 'TRANSPORT',
+            transport: Transport.NATS,
+            options: {
+              servers: ['nats://localhost:4222'],
+            },
+          },
+        ]),
+      ],
       controllers: [AppController],
       providers: [AppService],
     }).compile();
@@ -53,73 +53,65 @@ describe('AppController', () => {
     //   ]);
     // });
 
-    // it('callAppProcess no context', async () => {
-    //   const result_schema = {
-    //     test: 'для теста, реальный объект будет другой',
-    //   };
+    it('callAppProcess no context', async () => {
+      const result_schema = {
+        test: 'для теста, реальный объект будет другой',
+      };
 
-    //   const arguments_schema: LocalWrapperArguments = {
-    //     placement: 'local',
-    //     value: {
-    //       a: 1,
-    //       b: 3,
-    //     },
-    //   };
+      const arguments_schema: LocalWrapperArguments = {
+        placement: 'local',
+        value: {
+          a: {
+            placement: 'local',
+            value: 0,
+          },
+          b: {
+            placement: 'local',
+            value: 4,
+          },
+        },
+      };
 
-    //   const script_schema: BlockCallSchema = {
-    //     start: {
-    //       id: 'start',
-    //       prev_id: '',
-    //       module: 'StartEnd',
-    //       wrapper: 'Start',
-    //       wrapper_arguments: {
-    //         placement: 'local',
-    //         value: 'some value',
-    //       },
-    //       wrapper_result_schema: {},
-    //       next: [
-    //         {
-    //           id: 'block1',
-    //         },
-    //       ],
-    //     },
-    //     block1: {
-    //       id: 'block1',
-    //       prev_id: 'start',
-    //       module: 'Math',
-    //       wrapper: 'AddNumbers',
-    //       wrapper_arguments: arguments_schema,
-    //       wrapper_result_schema: result_schema,
-    //       next: [
-    //         {
-    //           id: 'end',
-    //         },
-    //       ],
-    //     },
-    //     end: {
-    //       id: 'end',
-    //       prev_id: 'block1',
-    //       module: 'StartEnd',
-    //       wrapper: 'End',
-    //       wrapper_arguments: {
-    //         placement: 'local',
-    //         value: 'local value',
-    //       },
-    //       wrapper_result_schema: {},
-    //       next: [],
-    //     },
-    //   };
+      const script_schema: BlockCallSchema = {
+        start: {
+          id: 'start',
+          prev_id: '',
+          module: 'StartEnd',
+          wrapper: 'Start',
+          wrapper_arguments: {} as LocalWrapperArguments,
+          wrapper_result_schema: {},
+          next: 'block1',
+        },
+        block1: {
+          id: 'block1',
+          prev_id: 'start',
+          module: 'Math',
+          wrapper: 'AddNumbers',
+          wrapper_arguments: arguments_schema,
+          wrapper_result_schema: result_schema,
+          next: 'end',
+        },
+        end: {
+          id: 'end',
+          prev_id: 'block1',
+          module: 'StartEnd',
+          wrapper: 'End',
+          wrapper_arguments: {} as LocalWrapperArguments,
+          wrapper_result_schema: {},
+          next: '',
+        },
+      };
 
-    //   expect(
-    //     (
-    //       await appController.createScriptProcess({
-    //         blockCallSchema: script_schema,
-    //         is_testingMode: false,
-    //         script_arguments: {},
-    //       })
-    //     ).value,
-    //   ).toBe(4);
-    // });
+      expect(
+        (
+          await appController.createScriptProcess({
+            blockCallSchema: script_schema,
+            is_testingMode: false,
+            script_arguments: {},
+          })
+        ).value,
+      ).toBe(4);
+    });
 
     // it('callAppProcess all arg in context', async () => {
     //   const result_schema = {
