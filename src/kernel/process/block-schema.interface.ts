@@ -7,11 +7,7 @@ export interface Block {
   wrapper: string;
   wrapper_arguments: WrapperArguments;
   wrapper_result_schema: Record<string, any>;
-  next:
-    | {
-        id: string;
-      }[]
-    | never[];
+  next: string;
 }
 
 export type BlockCallSchema = Record<string | 'start' | 'end', Block>;
