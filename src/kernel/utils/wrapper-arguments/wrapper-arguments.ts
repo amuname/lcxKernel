@@ -25,7 +25,7 @@ export type MixedWrapperValue =
 
 export interface LocalMixedWrapperValue {
   placement: 'local';
-  value: string;
+  value: string | number | boolean;
 }
 
 export interface ContextMixedWrapperValue {
