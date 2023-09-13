@@ -101,7 +101,8 @@ export class AppProcess {
     // console.log('blockRoutine result: ', result);
     // console.log('blockRoutine result set: ', this.result);
 
-    return await Promise.all(block.next.map(({ id }) => this.blockRoutine(id))); // ???? в ts должно работать в js нет
+    // return await Promise.all(block.next.map(({ id }) => this.blockRoutine(id))); // ???? в ts должно работать в js нет
+    return block.next && (await this.blockRoutine(block.next));
   }
 
   private wrapperCall(
