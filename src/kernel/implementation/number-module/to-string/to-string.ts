@@ -13,6 +13,8 @@ export class ToString extends FunctionWrapper {
     avalible_from: ['local', 'context'],
     arg_schema: {
       stringable_number: {
+        name: 'Number',
+        description: 'Convert number to string',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'number'],
       },

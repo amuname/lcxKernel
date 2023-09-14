@@ -18,10 +18,14 @@ export class IfCondition extends FunctionWrapper {
     avalible_from: ['local', 'context'],
     arg_schema: {
       condition: {
+        name: 'Condition (true/false)',
+        description: 'If arg is true - "if block" wii be choosen',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'boolean'],
       },
       if_block_schema: {
+        name: 'If block',
+        description: 'If block. Script goes that way if condition arg is true',
         avalible_from: ['local', 'context'],
         type: ['module', 'Script'],
       },

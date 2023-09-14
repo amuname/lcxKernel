@@ -13,6 +13,8 @@ export class ParseInt extends FunctionWrapper {
     avalible_from: ['local', 'context'],
     arg_schema: {
       expect_number: {
+        name: 'Expect integer',
+        description: 'String that represents integer will converted to integer',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'string'],
       },

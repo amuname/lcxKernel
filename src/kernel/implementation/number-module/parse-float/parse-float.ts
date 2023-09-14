@@ -13,6 +13,8 @@ export class ParseFloat extends FunctionWrapper {
     avalible_from: ['local', 'context'],
     arg_schema: {
       expect_number: {
+        name: 'Expect float',
+        description: 'String that represents float will converted to float',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'string'],
       },

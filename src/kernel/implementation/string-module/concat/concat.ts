@@ -15,14 +15,23 @@ export class Concat extends FunctionWrapper {
     avalible_from: ['local', 'context'],
     arg_schema: {
       firstString: {
+        name: 'First string',
+        description:
+          'First string or char to concat "first string + concat symbol + second string"',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'string'],
       },
       concat_symbol: {
+        name: 'Concat symbol or string',
+        description:
+          'Concat string or char to concat "first string + concat symbol + second string"',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'string'],
       },
       secondString: {
+        name: 'Second string',
+        description:
+          'Second string or char to concat "first string + concat symbol + second string"',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'string'],
       },

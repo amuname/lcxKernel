@@ -20,14 +20,22 @@ export class Apply extends FunctionWrapper {
     avalible_from: ['local', 'context'],
     arg_schema: {
       applicable_function: {
+        name: 'Applicable function',
+        description:
+          'Chose function. It will be returned from block. You can use return value to execute function later',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['module', 'Object'],
       },
       function_arguments: {
+        name: 'Function arguments',
+        description: 'Provide arguments to function when it executed',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['module', 'Object'],
       },
       is_testing_mode: {
+        name: 'Testing mode',
+        description:
+          'If true, function arguments will be compared with function arguments schema. It compare model and type',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'boolean'],
       },

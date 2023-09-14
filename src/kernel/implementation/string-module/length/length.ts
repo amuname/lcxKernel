@@ -13,6 +13,8 @@ export class Length extends FunctionWrapper {
     avalible_from: ['local', 'context'],
     arg_schema: {
       inputString: {
+        name: 'Input string',
+        description: 'Get conut of chars in string',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'string'],
       },

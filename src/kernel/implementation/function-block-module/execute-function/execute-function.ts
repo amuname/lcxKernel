@@ -19,14 +19,21 @@ export class ExecuteFunction extends FunctionWrapper {
     avalible_from: ['local', 'context'],
     arg_schema: {
       function_to_exec: {
+        name: 'Function to exec',
+        description: 'Chose function. It will be executed',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['module', 'Function', 'wrapper', 'ExecuteFunction'],
       },
       function_arguments: {
+        name: 'Function arguments',
+        description: 'Provide arguments to function when it executed',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['module', 'Object'],
       },
       is_testing_mode: {
+        name: 'Testing mode',
+        description:
+          'If true, function arguments will be compared with function arguments schema. It compare model and type',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'boolean'],
       },
