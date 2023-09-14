@@ -14,14 +14,23 @@ export class Split extends FunctionWrapper {
     avalible_from: ['local', 'context'],
     arg_schema: {
       firstString: {
+        name: 'First string',
+        description:
+          'First string or char to divide "first string + divide symbol + second string" = "first string  + second string"',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'string'],
       },
       concat_symbol: {
+        name: 'Divide string',
+        description:
+          'Divide string or char to divide "first string + divide symbol + second string" = "first string  + second string"',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'string'],
       },
       secondString: {
+        name: 'Second string',
+        description:
+          'Second string or char to divide "first string + divide symbol + second string" = "first string  + second string"',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'string'],
       },

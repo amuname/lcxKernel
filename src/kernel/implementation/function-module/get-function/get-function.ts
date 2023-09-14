@@ -17,6 +17,9 @@ export class GetFunction extends FunctionWrapper {
     avalible_from: ['local', 'context'],
     arg_schema: {
       applicable_function: {
+        name: 'Applicable function',
+        description:
+          'Chose function. It will be returned from block. You can use return value to execute function later',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['module', 'Object'],
       },

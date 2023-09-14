@@ -17,14 +17,20 @@ export class LoadScriptAndApply extends FunctionWrapper {
     avalible_from: ['local', 'context'],
     arg_schema: {
       script_id: {
+        name: 'Script',
+        description: 'Get script id',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'string'],
       },
       script_arguments: {
+        name: 'Script arguments',
+        description: 'Provide argumnets to script',
         avalible_from: ['local', 'context'],
         type: ['module', 'Object'],
       },
       is_testing_mode: {
+        name: 'Testing mode',
+        description: 'Execute script in testing mode if true',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'boolean'],
       },

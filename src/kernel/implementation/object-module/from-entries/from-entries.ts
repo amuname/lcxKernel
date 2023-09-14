@@ -13,6 +13,8 @@ export class FromEntries extends FunctionWrapper {
     avalible_from: ['local', 'context'],
     arg_schema: {
       object_entries: {
+        name: 'Key and value array',
+        description: 'Expect array with tuple (key, value)',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['module', 'List'],
       },

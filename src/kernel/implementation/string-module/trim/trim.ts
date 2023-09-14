@@ -13,6 +13,9 @@ export class Trim extends FunctionWrapper {
     avalible_from: ['local', 'context'],
     arg_schema: {
       inputString: {
+        name: 'Input string',
+        description:
+          'Whitespases before and after will be removed " wow " = "wow"',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'string'],
       },

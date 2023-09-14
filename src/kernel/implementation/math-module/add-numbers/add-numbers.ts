@@ -14,10 +14,14 @@ export class AddNumbers extends FunctionWrapper {
     avalible_from: ['local', 'context'],
     arg_schema: {
       a: {
+        name: 'Argument A',
+        description: 'A + b',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'number'],
       },
       b: {
+        name: 'Argument B',
+        description: 'a + B',
         avalible_from: ['local', 'other_wrapper', 'context'],
         type: ['primitive', 'number'],
       },
